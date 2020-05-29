@@ -15,6 +15,7 @@ namespace Main
         public MainClient()
         {
             InitializeComponent();
+
             timer1.Start();
         }
         public void skins()
@@ -72,7 +73,7 @@ namespace Main
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            MessageBox.Show("Test");
+            
 
         }
     }

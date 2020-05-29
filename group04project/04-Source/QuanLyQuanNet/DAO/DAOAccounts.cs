@@ -72,6 +72,19 @@ namespace Quanlyquannet.DAO
             }
             else return 0;
         }
+
+        public static double TienTaiKhoan(string maKH)
+        {
+            SqlCommand cmd = new SqlCommand("Tien_TaiKhoan");
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@maKH", maKH);
+            DataTable dt = SQLDB.SQLDB.GetData(cmd);
+            if (dt.Rows.Count > 0)
+            {
+                return Convert.ToDouble(dt.Rows[0][0]);
+            }
+            else return 0;
+        }
         public static void AddMoney(string maKH, double tienNap)
         {
             SqlCommand cmd = new SqlCommand("Add_Money");

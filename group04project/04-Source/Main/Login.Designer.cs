@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
@@ -37,6 +38,7 @@
             this.lblTenTaiKhoan = new DevExpress.XtraEditors.LabelControl();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.timerTruTien = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
@@ -153,6 +155,11 @@
             this.simpleButton1.Text = "Đăng nhập";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
+            // timerTruTien
+            // 
+            this.timerTruTien.Interval = 300;
+            this.timerTruTien.Tick += new System.EventHandler(this.timerTruTien_Tick);
+            // 
             // frm_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -186,5 +193,6 @@
         private DevExpress.XtraEditors.LabelControl lblTenTaiKhoan;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private System.Windows.Forms.Timer timerTruTien;
     }
 }
