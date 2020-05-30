@@ -59,8 +59,8 @@ namespace Main
 
         private void timerTruTien_Tick(object sender, EventArgs e)
         {
-            Double tienKH=tienKh();
-            if(tienKH<1000)
+            double tienKH=tienKh();
+            if(800<tienKH<1000)
             {
                 MessageBox.Show("Thông báo","Tài khoản của bạn sắp hết.Xin vui lòng nạp thêm tiền vào tài khoản để sử dụng dịch vụ");
             }
@@ -73,6 +73,8 @@ namespace Main
                
             }else
             {
+                timerTruTien.Stop();
+
                 MessageBox.Show("Thông báo", "Tài khoản đã hết.Xin vui lòng nạp thêm tiền vào tài khoản để sử dụng dịch vụ");
                 //Dang xuat
             }
