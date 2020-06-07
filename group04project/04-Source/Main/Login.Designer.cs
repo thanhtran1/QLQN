@@ -93,6 +93,7 @@
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMatKhau.Properties.Appearance.Options.UseFont = true;
+            this.txtMatKhau.Properties.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(262, 26);
             this.txtMatKhau.TabIndex = 5;
             // 
@@ -116,6 +117,7 @@
             this.txtTenDangNhap.Properties.Appearance.Options.UseFont = true;
             this.txtTenDangNhap.Size = new System.Drawing.Size(262, 28);
             this.txtTenDangNhap.TabIndex = 1;
+            this.txtTenDangNhap.EditValueChanged += new System.EventHandler(this.txtTenDangNhap_EditValueChanged);
             // 
             // lblTenTaiKhoan
             // 
@@ -171,6 +173,7 @@
             this.Name = "frm_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐĂNG NHẬP HỆ THỐNG";
+            this.Load += new System.EventHandler(this.frm_Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();

@@ -10,12 +10,16 @@ using System.Data.SqlClient;
 
 namespace Main
 {
-    public partial class MainClient : DevExpress.XtraEditors.XtraForm
+    public partial class frm_MainClient : DevExpress.XtraEditors.XtraForm
     {
-        public MainClient()
+        private Timer aTimer;
+        private int seconds = 0;
+        private int hour;
+        private string maKH;
+        public frm_MainClient(string maKH)
         {
+            this.maKH = maKH;
             InitializeComponent();
-
             timer1.Start();
         }
         public void skins()
@@ -25,9 +29,19 @@ namespace Main
         }
         private void MainClient_Load(object sender, EventArgs e)
         {
+            // đếm time out
+            timer1 = new Timer();
+
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Interval = 1000; // 1 second
+
+            timer1.Start();
+            lblthoigiansudung.Text =hour.ToString() + ":" + seconds.ToString();
+
             skins();
+            lblTenTK.Text = this.maKH;
             System.Drawing.Rectangle workingRectangle =
-        Screen.PrimaryScreen.WorkingArea;
+            Screen.PrimaryScreen.WorkingArea;
             Console.WriteLine(workingRectangle.Width);
             Point p = new Point();
 
@@ -53,9 +67,8 @@ namespace Main
                 cmd.Connection = con;
                 if (con.State != ConnectionState.Open)
                     con.Open();
-            cmd.Parameters.AddWithValue("@MaKH", "kh01");
-            cmd.Parameters.AddWithValue("@MaMay", "may01");
-                //cmd.Parameters.AddWithValue("@TaiKhoanMay", 1);
+                cmd.Parameters.AddWithValue("@MaKH", "kh01");
+                cmd.Parameters.AddWithValue("@MaMay", "may01");
                 cmd.Parameters.AddWithValue("@GioVao","0");
                 cmd.Parameters.AddWithValue("@GioRa", DateTime.Now);
                 cmd.ExecuteNonQuery();
@@ -73,7 +86,16 @@ namespace Main
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
+            seconds++;
+            lblthoigiansudung.Text =  hour.ToString() + ":" + seconds.ToString();
+        }
+
+        private void labelControl6_Click(object sender, EventArgs e)
+        { 
+        }
+
+        private void panelControl1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

@@ -19,12 +19,13 @@ namespace Main
         public frm_Login()
         {
             InitializeComponent();
+           
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source=DESKTOP-4ANTS40\SQLEXPRESS;Initial Catalog=QuanLyQuanNet01;Integrated Security=True";
+            con.ConnectionString = @"Data Source=DESKTOP-COPK1IA;Initial Catalog=QuanLyQuanNet01;Integrated Security=True";
             //Kiem tra tai khoan co ton tai
             string sql = "Select * from KhachHang where MaKH='" + txtTenDangNhap.Text + "' and  MatKhau='" + txtMatKhau.Text + "'";
             DataTable dt = new DataTable();
@@ -43,14 +44,13 @@ namespace Main
                     con.Open();
                 cmd.Parameters.AddWithValue("@MaKH", txtTenDangNhap.Text);
                 cmd.Parameters.AddWithValue("@MaMay", "may01");
-                //cmd.Parameters.AddWithValue("@TaiKhoanMay", 1);
                 cmd.Parameters.AddWithValue("@GioVao", DateTime.Now);
                 cmd.Parameters.AddWithValue("@GioRa", DateTime.Now);
 
                 timerTruTien.Start();
 
                 cmd.ExecuteNonQuery();
-                MainClient frmMain = new MainClient();
+                frm_MainClient frmMain = new frm_MainClient(txtTenDangNhap.Text);
                 frmMain.Show();
             }
             else
@@ -60,22 +60,21 @@ namespace Main
         private void timerTruTien_Tick(object sender, EventArgs e)
         {
             double tienKH=tienKh();
-            if(800<tienKH<1000)
+            if ( tienKH>900 && tienKH< 1000)
             {
-                MessageBox.Show("Thông báo","Tài khoản của bạn sắp hết.Xin vui lòng nạp thêm tiền vào tài khoản để sử dụng dịch vụ");
+                MessageBox.Show("Tài khoản của bạn sắp hết.Xin vui lòng nạp thêm tiền vào tài khoản để sử dụng dịch vụ");
             }
-
             if(tienKH>0)
             {
                 truTienKH();
-                MessageBox.Show("Tien khach hang:" + tienKH.ToString());
-
-               
-            }else
+            }
+            else if ( tienKH < 0 )
             {
                 timerTruTien.Stop();
 
-                MessageBox.Show("Thông báo", "Tài khoản đã hết.Xin vui lòng nạp thêm tiền vào tài khoản để sử dụng dịch vụ");
+                MessageBox.Show("Tài khoản đã hết.Xin vui lòng nạp thêm tiền vào tài khoản để sử dụng dịch vụ!");
+                Form frm_login = new frm_Login();
+                frm_login.ShowDialog();
                 //Dang xuat
             }
 
@@ -124,6 +123,16 @@ namespace Main
             }
             else
                 return 0;
+        }
+
+        private void txtTenDangNhap_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frm_Login_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.ReduceOperation reduceOperation2 = new DevExpress.XtraBars.Ribbon.ReduceOperation();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.ReduceOperation reduceOperation1 = new DevExpress.XtraBars.Ribbon.ReduceOperation();
             this.repositoryItemColorPickEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemColorPickEdit();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.imgcl1 = new DevExpress.Utils.DPIAwareImageCollection(this.components);
@@ -255,9 +255,9 @@
             // 
             // 
             // 
-            galleryItemGroup2.Caption = "Group2";
+            galleryItemGroup1.Caption = "Group2";
             this.skinPaletteRibbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup2});
+            galleryItemGroup1});
             this.skinPaletteRibbonGalleryBarItem1.Id = 11;
             this.skinPaletteRibbonGalleryBarItem1.Name = "skinPaletteRibbonGalleryBarItem1";
             // 
@@ -393,12 +393,12 @@
             this.rpgQuanlydichvu,
             this.rpgGiaodien});
             this.rbpHeThong.Name = "rbpHeThong";
-            reduceOperation2.Behavior = DevExpress.XtraBars.Ribbon.ReduceOperationBehavior.Single;
-            reduceOperation2.GroupName = null;
-            reduceOperation2.ItemLinkIndex = 0;
-            reduceOperation2.ItemLinksCount = 0;
-            reduceOperation2.Operation = DevExpress.XtraBars.Ribbon.ReduceOperationType.Gallery;
-            this.rbpHeThong.ReduceOperations.Add(reduceOperation2);
+            reduceOperation1.Behavior = DevExpress.XtraBars.Ribbon.ReduceOperationBehavior.Single;
+            reduceOperation1.GroupName = null;
+            reduceOperation1.ItemLinkIndex = 0;
+            reduceOperation1.ItemLinksCount = 0;
+            reduceOperation1.Operation = DevExpress.XtraBars.Ribbon.ReduceOperationType.Gallery;
+            this.rbpHeThong.ReduceOperations.Add(reduceOperation1);
             this.rbpHeThong.Text = "Hệ thống";
             // 
             // rbgQuanlydichvu
@@ -815,6 +815,7 @@
             this.lbTaiKhoan.Size = new System.Drawing.Size(14, 19);
             this.lbTaiKhoan.TabIndex = 72;
             this.lbTaiKhoan.Text = " ";
+            this.lbTaiKhoan.Click += new System.EventHandler(this.lbTaiKhoan_Click);
             // 
             // label1
             // 

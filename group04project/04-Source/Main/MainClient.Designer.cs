@@ -1,6 +1,6 @@
 ﻿namespace Main
 {
-    partial class MainClient
+    partial class frm_MainClient
     {
         /// <summary>
         /// Required designer variable.
@@ -31,9 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.txtThoiGianConLai = new DevExpress.XtraEditors.TextEdit();
-            this.txtThoiGianSuDung = new DevExpress.XtraEditors.TextEdit();
-            this.txtTongThoiGian = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.lblMaMay = new DevExpress.XtraEditors.LabelControl();
@@ -43,12 +40,12 @@
             this.btnDangXuat = new DevExpress.XtraEditors.SimpleButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.lblTenTK = new DevExpress.XtraEditors.LabelControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblthoigiansudung = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtThoiGianConLai.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtThoiGianSuDung.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTongThoiGian.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -61,6 +58,7 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(432, 45);
             this.panelControl1.TabIndex = 2;
+            this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
             // 
             // labelControl2
             // 
@@ -74,39 +72,6 @@
             this.labelControl2.Size = new System.Drawing.Size(75, 27);
             this.labelControl2.TabIndex = 0;
             this.labelControl2.Text = "Máy 01";
-            // 
-            // txtThoiGianConLai
-            // 
-            this.txtThoiGianConLai.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtThoiGianConLai.Location = new System.Drawing.Point(242, 241);
-            this.txtThoiGianConLai.Margin = new System.Windows.Forms.Padding(4);
-            this.txtThoiGianConLai.Name = "txtThoiGianConLai";
-            this.txtThoiGianConLai.Properties.Appearance.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThoiGianConLai.Properties.Appearance.Options.UseFont = true;
-            this.txtThoiGianConLai.Size = new System.Drawing.Size(141, 28);
-            this.txtThoiGianConLai.TabIndex = 59;
-            // 
-            // txtThoiGianSuDung
-            // 
-            this.txtThoiGianSuDung.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtThoiGianSuDung.Location = new System.Drawing.Point(242, 184);
-            this.txtThoiGianSuDung.Margin = new System.Windows.Forms.Padding(4);
-            this.txtThoiGianSuDung.Name = "txtThoiGianSuDung";
-            this.txtThoiGianSuDung.Properties.Appearance.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThoiGianSuDung.Properties.Appearance.Options.UseFont = true;
-            this.txtThoiGianSuDung.Size = new System.Drawing.Size(141, 28);
-            this.txtThoiGianSuDung.TabIndex = 58;
-            // 
-            // txtTongThoiGian
-            // 
-            this.txtTongThoiGian.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtTongThoiGian.Location = new System.Drawing.Point(242, 131);
-            this.txtTongThoiGian.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTongThoiGian.Name = "txtTongThoiGian";
-            this.txtTongThoiGian.Properties.Appearance.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTongThoiGian.Properties.Appearance.Options.UseFont = true;
-            this.txtTongThoiGian.Size = new System.Drawing.Size(141, 28);
-            this.txtTongThoiGian.TabIndex = 57;
             // 
             // labelControl4
             // 
@@ -207,48 +172,75 @@
             this.labelControl5.TabIndex = 63;
             this.labelControl5.Text = "Tài khoản: ";
             // 
-            // labelControl6
+            // lblTenTK
             // 
-            this.labelControl6.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Appearance.Options.UseForeColor = true;
-            this.labelControl6.Location = new System.Drawing.Point(242, 78);
-            this.labelControl6.Margin = new System.Windows.Forms.Padding(4);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(148, 22);
-            this.labelControl6.TabIndex = 64;
-            this.labelControl6.Text = "Tổng thời gian: ";
+            this.lblTenTK.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblTenTK.Appearance.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenTK.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.lblTenTK.Appearance.Options.UseFont = true;
+            this.lblTenTK.Appearance.Options.UseForeColor = true;
+            this.lblTenTK.Location = new System.Drawing.Point(242, 78);
+            this.lblTenTK.Margin = new System.Windows.Forms.Padding(4);
+            this.lblTenTK.Name = "lblTenTK";
+            this.lblTenTK.Size = new System.Drawing.Size(10, 21);
+            this.lblTenTK.TabIndex = 64;
+            this.lblTenTK.Text = "1";
+            this.lblTenTK.Click += new System.EventHandler(this.labelControl6_Click);
             // 
-            // MainClient
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(220, 140);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 24);
+            this.label1.TabIndex = 65;
+            this.label1.Text = "label1";
+            // 
+            // lblthoigiansudung
+            // 
+            this.lblthoigiansudung.AccessibleDescription = "";
+            this.lblthoigiansudung.AutoSize = true;
+            this.lblthoigiansudung.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblthoigiansudung.Location = new System.Drawing.Point(208, 180);
+            this.lblthoigiansudung.Name = "lblthoigiansudung";
+            this.lblthoigiansudung.Size = new System.Drawing.Size(0, 29);
+            this.lblthoigiansudung.TabIndex = 66;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(210, 249);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 17);
+            this.label3.TabIndex = 67;
+            this.label3.Text = "label3";
+            // 
+            // frm_MainClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 496);
-            this.Controls.Add(this.labelControl6);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblthoigiansudung);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTenTK);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.btnDoiMatKhau);
             this.Controls.Add(this.btnTinNhan);
             this.Controls.Add(this.btnDangXuat);
-            this.Controls.Add(this.txtThoiGianConLai);
-            this.Controls.Add(this.txtThoiGianSuDung);
-            this.Controls.Add(this.txtTongThoiGian);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.lblMaMay);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.panelControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "MainClient";
+            this.Name = "frm_MainClient";
             this.Text = "THÔNG TIN";
             this.Load += new System.EventHandler(this.MainClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtThoiGianConLai.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtThoiGianSuDung.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTongThoiGian.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,16 +253,16 @@
         private DevExpress.XtraEditors.SimpleButton btnDoiMatKhau;
         private DevExpress.XtraEditors.SimpleButton btnTinNhan;
         private DevExpress.XtraEditors.SimpleButton btnDangXuat;
-        private DevExpress.XtraEditors.TextEdit txtThoiGianConLai;
-        private DevExpress.XtraEditors.TextEdit txtThoiGianSuDung;
-        private DevExpress.XtraEditors.TextEdit txtTongThoiGian;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl lblMaMay;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl lblTenTK;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblthoigiansudung;
+        private System.Windows.Forms.Label label3;
     }
 }
 

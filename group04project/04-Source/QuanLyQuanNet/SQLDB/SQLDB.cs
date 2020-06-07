@@ -10,7 +10,7 @@ namespace Quanlyquannet.SQLDB
 {
     public class SQLDB
     {
-        static string _ConnectionString = @"Data Source=DESKTOP-4ANTS40\SQLEXPRESS;Initial Catalog=QuanLyQuanNet01;Integrated Security=True";
+        static string _ConnectionString = @"Data Source=DESKTOP-COPK1IA;Initial Catalog=QuanLyQuanNet01;Integrated Security=True";
 
 
         static SqlConnection GetConnection()

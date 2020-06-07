@@ -205,5 +205,10 @@ namespace Quanlyquannet
         {
             
         }
+
+        private void lbTaiKhoan_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
